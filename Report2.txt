@@ -1,0 +1,11 @@
+
+			Part C
+-------------------------------------------------------------------------------------------------------------
+Once we Scan packet we pass through Ethernet Field,IP Address Field and TCP Field and we get Http Data. From that we search whether "Http" phrase exists in payload if it exists, then we search for Get field and if it does not return NULL then we print payload which is GET Request else we print it as Response. Then with TCP header we print source port, destination port, sequence number and acknowledge numbers.
+
+To find HTTP Protocol for 1080.pcap we directly serach for HTTP/ and check if substring matches with 1.0 or 1.1 or 2.0 we print it to console based on appropriate check.
+In this, I have counted total number of packets and total number of raw bytes sent. And after testing it with all 3 pcap's it is evident that 1st pcap has more number of flows than second one which has more number of flows than third one. This confirms that 1st pcap uses HTTP/1.0 2nd pcap uses HTTP/1.1 and third uses HTTP 2.0.
+
+And experiment also reveals that HTTP/1.1 has sent more number of raw bytes and packets when compared to other versions and HTTP/2.0 has sent least number of packets and raw bytes.
+
+If we compare time difference it suggests that HTTP/1.1 clearly taskes most time HTTP/1.0 loaded fast.(Time is taken in epochs)

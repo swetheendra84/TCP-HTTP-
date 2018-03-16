@@ -1,0 +1,6 @@
+
+		Part B
+---------------------------------------------------------------------------------------------------------------
+We Calculate Maximum Size Segement from Tcp Header Field Extra Options. Based on range of MSS we set Initial Congestion window size. We set SSThreashold to be 8 times MSS. Whenever we receive Acknowledgement packet we check if Congestion WIndow is less than SSThreshold if yes then we increment by MSS else we re compute it by dividing MSS sqaure with CWND and we obtain new CWND.Congestion window grows rapidly until Timeout Occurs. Once Timeout occurs Congestion Window Reinitializes to 1 and SSThreashold will become half of Congestion Window .
+
+Once we find a sequence number being requested we serach for previous occurences and if it exists then it is a retransmission. We know default timeout of TCP is 3ms so we compute time diffrence between two packets and if it greater than 3ms we can conclude that retransmission occured due to timeout else it is triple duplicate acknowledgement.

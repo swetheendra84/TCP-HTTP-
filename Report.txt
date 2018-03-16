@@ -1,0 +1,12 @@
+
+		PART A
+---------------------------------------------------------------------------------------------------------------
+To Count TCP Flows initiated from Sender I have created a structure storing all necessary fields like sourceportsequence number, and other parameters. Whenever packet is scanned it checks whether source port is already existing in structure if it exists then we continue else we increment count and proceed further. Thus Number of TCP Flows initiated is equal to count that depends on source port.
+For each TCP packet, we can get values of Sequence Number,Acnowledgement Number and Receiver Window Size can be directly obtained by TCP Header fields.
+
+Throughput is calculated by dividing total size of packets and time difference between last and first packet. Size of individual packet can be obtained by header field and time can also be obtained from header thus we can compute throughput. In this program Time is calculated in epochs (not able to convert epochs to milli seconds) as a result results might be different.
+
+Loss Rate is number of packets Retransmitted divided by Total number of packets. Packets Retransmitted are obtained by checking whether sequence number of current packet occured before. Every packet's sequence number is stored in structure so that it will be flexible to compare.
+
+RTT is calculated in following way. Since we mentioned that we store sequence numbers whenever a packet comes in we check its acknowledge number is one plus sequence number of previous any packet then we add time difference of two packets  and increment counter.Once this is repeated for all packets we divide sum by counter and this is average RTT.
+Theoritical throughput is calculated by Formula obtained by dividing Maximum Segment Size and RTT.
